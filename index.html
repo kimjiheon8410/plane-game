@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>비행기 게임</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div id="game-container">
+    <div id="score">0</div>
+    <div id="high-score">최고점수: 0</div>
+    <div id="level">레벨: 1</div>
+    <div id="active-powerup">파워업: </div>
+    <button id="pause-btn">⏸️</button>
+
+    <div id="plane" class="game-element"></div>
+
+    <div id="intro-screen" class="screen">
+      <h1>비행기 게임</h1>
+      <p>화면을 터치하면 비행기가 상승합니다</p>
+      <p>더 높은 레벨에서는 날아오는 적들도 피해야 합니다!</p>
+      <p>다양한 파워업 아이템을 획득하세요!</p>
+
+      <div id="difficulty-selector">
+        <button id="easy-btn" class="difficulty-btn selected">쉬움</button>
+        <button id="normal-btn" class="difficulty-btn">보통</button>
+        <button id="hard-btn" class="difficulty-btn">어려움</button>
+      </div>
+
+      <button id="start-btn" class="btn">게임 시작</button>
+    </div>
+
+    <div id="game-over" class="screen">
+      <h1>게임 오버!</h1>
+      <p>점수: <span id="final-score">0</span></p>
+      <p>최고점수: <span id="final-high-score">0</span></p>
+      <button id="restart-btn" class="btn">다시 시작</button>
+    </div>
+
+    <div id="pause-screen" class="screen">
+      <h2>일시정지</h2>
+      <button id="resume-btn" class="btn">게임 계속하기</button>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+
+</html>
