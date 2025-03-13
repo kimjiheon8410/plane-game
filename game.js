@@ -612,6 +612,17 @@
       buttons.pause.style.display = "none";
     }
 
+// 버튼에 디버깅 코드 추가
+restartButton.addEventListener('click', function(e) {
+    console.log('다시 시작 버튼 클릭됨');
+    // 오류가 발생할 수 있는 코드를 try-catch로 감싸기
+    try {
+        restartGame();
+    } catch (error) {
+        console.error('오류 발생:', error);
+    }
+});
+    
     // 초기 설정
     loadHighScore();
 
