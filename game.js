@@ -618,7 +618,12 @@
     // 버튼 이벤트 리스너
     buttons.start.addEventListener("click", initGame);
     buttons.restart.addEventListener("click", function () {
-    restartButton.addEventListener('touchend', function(e) {  
+    // 여기에 새 코드 추가
+    restartButton.addEventListener('touchend', function(e) {
+        e.preventDefault(); // 기본 터치 동작 방지
+        restartGame();
+    });
+      
       // 게임 오버 화면 숨기고 새 게임 시작
       screens.gameOver.style.display = "none";
       initGame();
