@@ -611,7 +611,7 @@
       screens.gameOver.style.display = "flex";
       buttons.pause.style.display = "none";
     }
-    
+
     // 초기 설정
     loadHighScore();
 
