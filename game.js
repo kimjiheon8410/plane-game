@@ -590,11 +590,11 @@
       // 게임 상태 비활성화
       gameActive = false;
 
-      // 이벤트 리스너 제거
-      ["touchstart", "mousedown", "touchend", "mouseup"].forEach((event) =>
-        document.removeEventListener(
-          event,
-          event.includes("touch") ? handleTouch : handleTouchEnd
+      // 이벤트 리스너 제거 - 수정된 부분
+  document.removeEventListener('touchstart', handleTouch);
+  document.removeEventListener('mousedown', handleTouch);
+  document.removeEventListener('touchend', handleTouchEnd);
+  document.removeEventListener('mouseup', handleTouchEnd);
         )
       );
 
@@ -615,13 +615,24 @@
     // 초기 설정
     loadHighScore();
 
-    // 버튼 이벤트 리스너
-    buttons.start.addEventListener("click", initGame);
-    buttons.restart.addEventListener("click", function () {
-      // 게임 오버 화면 숨기고 새 게임 시작
-      screens.gameOver.style.display = "none";
-      initGame();
-    });
+    // 재시작 버튼에 터치 이벤트 추가
+buttons.restart.addEventListener('touchstart', function(e) {
+  e.preventDefault();
+  e.stopPropagation();
+  screens.gameOver.style.display = 'none';
+  initGame();
+});
+
+// 재시작 버튼 클릭 이벤트 리스너 수정
+buttons.restart.addEventListener('click', function(e) {
+  // 터치 이벤트가 다른 요소로 전파되지 않도록 방지
+  e.preventDefault();
+  e.stopPropagation();
+  
+  // 게임 오버 화면 숨기고 새 게임 시작
+  screens.gameOver.style.display = 'none';
+  initGame();
+});
     buttons.pause.addEventListener("click", togglePause);
     buttons.resume.addEventListener("click", togglePause);
   });
