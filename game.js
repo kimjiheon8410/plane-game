@@ -611,17 +611,6 @@
       screens.gameOver.style.display = "flex";
       buttons.pause.style.display = "none";
     }
-
-// 버튼에 디버깅 코드 추가
-restartButton.addEventListener('click', function(e) {
-    console.log('다시 시작 버튼 클릭됨');
-    // 오류가 발생할 수 있는 코드를 try-catch로 감싸기
-    try {
-        restartGame();
-    } catch (error) {
-        console.error('오류 발생:', error);
-    }
-});
     
     // 초기 설정
     loadHighScore();
@@ -629,6 +618,7 @@ restartButton.addEventListener('click', function(e) {
     // 버튼 이벤트 리스너
     buttons.start.addEventListener("click", initGame);
     buttons.restart.addEventListener("click", function () {
+    restartButton.addEventListener('touchend', function(e) {  
       // 게임 오버 화면 숨기고 새 게임 시작
       screens.gameOver.style.display = "none";
       initGame();
