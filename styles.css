@@ -209,22 +209,6 @@ h2 {
   background-color: #d32f2f;
 }
 
-#restart-btn {
-  /* 기존 스타일 유지 */
-  padding: 10px 20px;
-  font-size: 18px;
-  background-color: #F44336;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  margin-top: 10px;
-  /* 추가 */
-  position: relative;
-  z-index: 25;
-}
-
 #resume-btn {
   background-color: #3498db;
 }
